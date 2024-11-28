@@ -83,33 +83,69 @@ CloverWebtoon은 웹툰을 탐색, 열람, 업로드 및 관리할 수 있는 �
 ```bash
 git clone https://github.com/your-username/CloverWebtoon.git
 ```
+<br>
 
 ### 2. 프로젝트를 IntelliJ IDEA 혹은 STS4에 가져옵니다.
+#### 1) IntelliJ IDEA
+- File → Open → 프로젝트 폴더 선택 → 열기.
+- Maven을 사용하는 경우, IntelliJ에서 자동으로 pom.xml 파일을 읽어 의존성을 설정합니다.
+#### 2) STS4
+- File → Import → Existing Maven Project 선택 → 프로젝트 폴더 선택 → Finish.
+<br>
 
 ### 3. 데이터베이스 설정
-- schema.sql 파일을 사용해 데이터베이스 스키마를 생성합니다.
-- application.properties 파일에서 데이터베이스 연결 정보를 설정합니다.
+#### 1) 스키마 생성
+- schema.sql 파일을 사용해 MySQL 데이터베이스에 필요한 테이블 및 초기 데이터를 생성합니다.
+  ```bash
+  mysql -u [username] -p [database_name] < schema.sql
+  ```
+#### 2) application.properties 설정
+- src/main/resources/application.properties 파일을 열어 데이터베이스 연결 정보를 수정합니다.
+  ```bash
+  spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+  spring.datasource.username=your_username
+  spring.datasource.password=your_password
+  ```
+  <br>
 
 ### 4. Spring Boot 애플리케이션 실행
+#### 아래 두 가지 방법 중 하나를 선택하여 실행합니다:
+
+#### 방법 1: IntelliJ IDEA 또는 STS4에서 실행
+① src/main/java 디렉토리에서 @SpringBootApplication이 붙은 메인 클래스(예: Application.java)를 찾습니다. <br>
+② 해당 파일을 오른쪽 클릭 → Run 'Application' 또는 Run As > Spring Boot App을 선택합니다.<br>
+
+#### 방법 2: 터미널에서 실행
+① 프로젝트 루트 디렉토리에서 아래 명령어를 실행합니다.
 ```bash
 ./mvnw spring-boot:run
 ```
+<br> ② Maven이 설치되어 있다면 아래 명령어도 가능합니다.
+```bash
+mvn spring-boot:run
+```
+<br>
 
 ### 5. 브라우저에서 애플리케이션에 접근
-url
-코드 복사
+브라우저를 열고 아래 URL로 이동합니다.
+```bash
 http://localhost:8080
+```
 
 
+<hr>
 
 
+### 👥 팀 구성 및 역할
 
 
+<hr>
 
 
-
-
-
+### 📢 프로젝트 후기
+이 프로젝트는 교육 과정에서 학습한 기술 스택을 기반으로 팀원들과 협업하며 완성된 결과물입니다.
+네이버 웹툰의 기능을 벤치마킹하며 개발 과정 전반에 걸쳐 설계, 구현, 테스트를 경험할 수 있었습니다.
+이를 통해 실무에 적용 가능한 풀스택 개발 경험을 쌓을 수 있었습니다.
 
 
 
